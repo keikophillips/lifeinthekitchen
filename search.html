@@ -111,6 +111,15 @@
         }
         a:hover {
             text-decoration: underline;
+        }
+        /* Add this CSS to remove bullet points from the list */
+        .search-results ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .search-results li {
+            margin: 5px 0;
+        }
     </style>
 </head>
 <body>
@@ -144,13 +153,16 @@
                 recipe.fileName.toLowerCase().includes(searchInput)
             );
 
+            const ul = document.createElement('ul');
             filteredRecipes.forEach(recipe => {
+                const li = document.createElement('li');
                 const recipeLink = document.createElement('a');
                 recipeLink.href = `recipes/${recipe.fileName}`;
-                recipeLink.className = 'recipe-link';
                 recipeLink.textContent = recipe.fileName.replace('.html', '');
-                searchResults.appendChild(recipeLink);
+                li.appendChild(recipeLink);
+                ul.appendChild(li);
             });
+            searchResults.appendChild(ul);
         }
     </script>
 </body>

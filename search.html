@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life in the Kitchen</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
+        body {
+            font-family: 'Merriweather';
+            font-size: 16px;
+            color: #000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            margin-top: 20px;
+        }
+        .search-bar {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+        .search-bar input {
+            padding: 10px;
+            font-size: 16px;
+            width: 300px;
+        }
+        .search-bar button {
+            padding: 10px;
+            font-size: 16px;
+            margin-left: 5px;
+        }
+        .search-results {
+            margin-top: 20px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .recipe-link {
+            border: 1px solid #000;
+            padding: 10px;
+            margin: 5px;
+            width: 80%;
+            text-align: left;
+            display: block;
+        }
+        .categories {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 5px;
+        }
+        .category {
+            border: 1px solid #000; /* Outer thin border */
+            padding: 10px;
+            margin: 10px;
+            text-align: center;
+            cursor: pointer;
+            width: 150px;
+            position: relative;
+        }
+        .category::before {
+            content: '';
+            position: absolute;
+            top: 2px;
+            right: 2px;
+            bottom: 2px;
+            left: 2px;
+            border: 1px solid #000; /* Inner thin border */
+            pointer-events: none;
+        }
+        .category:hover {
+            background-color: #d8d4e4;
+
+        }
+        .logo {
+        position: relative;
+        display: inline-block;
+        margin-top: 10px;
+        width: 200; /* Set the width to match the image */
+        height: 200; /* Set the height to match the image */
+        border: 3px solid #000; /* Outer thin border */
+        padding: 2px; /* Add padding to create space for the inner border */
+        box-sizing: border-box; /* Include padding in the element's total width and height */
+    }
+    .logo img {
+        display: block; /* Remove extra space below the image */
+        width: 100%; /* Ensure the image fits within the container */
+        height: 100%; /* Ensure the image fits within the container */
+    }
+    .logo::before {
+        content: '';
+        position: absolute;
+        top: 2px; /* Position the inner border 10px from the outer border */
+        right: 2px; /* Position the inner border 10px from the outer border */
+        bottom: 2px; /* Position the inner border 10px from the outer border */
+        left: 2px; /* Position the inner border 10px from the outer border */
+        border: 1px solid #000; /* Inner thin border */
+        pointer-events: none;
+    }
+        
+        a {
+            color: rgb(22, 19, 27);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+    </style>
+</head>
+<body>
+    <div class="logo">
+        <img src="logo.png" alt="Logo" style="width: 200px; height: auto;">
+    </div>
+    <h1>Life in the Kitchen</h1>
+    <div class="categories">
+        <div class="category"><a href="lifeinthekitchen.html">Return to home page</a></div>
+    </div>
+    <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Search recipes...">
+        <button onclick="searchRecipes()">Search</button>
+    </div>
+    <div class="search-results" id="searchResults"></div>
+
+    <script>
+        async function fetchRecipes() {
+            const response = await fetch('recipes.json');
+            const recipes = await response.json();
+            return recipes;
+        }
+
+        async function searchRecipes() {
+            const searchInput = document.getElementById('searchInput').value.toLowerCase();
+            const searchResults = document.getElementById('searchResults');
+            searchResults.innerHTML = '';
+
+            const recipes = await fetchRecipes();
+            const filteredRecipes = recipes.filter(recipe => 
+                recipe.fileName.toLowerCase().includes(searchInput)
+            );
+
+            filteredRecipes.forEach(recipe => {
+                const recipeLink = document.createElement('a');
+                recipeLink.href = `recipes/${recipe.fileName}`;
+                recipeLink.className = 'recipe-link';
+                recipeLink.textContent = recipe.fileName.replace('.html', '');
+                searchResults.appendChild(recipeLink);
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,1 +1,149 @@
 
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life in the Kitchen</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
+        body {
+            font-family: 'Merriweather';
+            font-size: 16px;
+            color: #000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            margin-top: 20px;
+        }
+        .categories {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 5px;
+        }
+        .category {
+            border: 1px solid #000; /* Outer thin border */
+            padding: 10px;
+            margin: 10px;
+            text-align: center;
+            cursor: pointer;
+            width: 100px;
+            position: relative;
+        }
+        .category::before {
+            content: '';
+            position: absolute;
+            top: 2px;
+            right: 2px;
+            bottom: 2px;
+            left: 2px;
+            border: 1px solid #000; /* Inner thin border */
+            pointer-events: none;
+        }
+        .category:hover {
+            background-color: #d8d4e4;
+        }
+        a {
+            color: rgb(22, 19, 27);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .searchbox {
+            border: 1px solid #ffffff; /* Outer thin border */
+            background-color: rgb(22, 19, 27);
+            padding: 10px;
+            margin: 10px;
+            text-align: center;
+            cursor: pointer;
+            width: 150px;
+            position: relative;
+        }
+        .searchbox::before {
+            content: '';
+            position: absolute;
+            top: 2px;
+            right: 2px;
+            bottom: 2px;
+            left: 2px;
+            border: 1px solid #ffffff; /* Inner thin border */
+            pointer-events: none;
+        }
+        .searchbox:hover {
+            background-color: #d8d4e4;
+        }
+        .searchbox a {
+            color: rgb(255, 255, 255);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .logo {
+        position: relative;
+        display: inline-block;
+        margin-top: 10px;
+        width: 200; /* Set the width to match the image */
+        height: 200; /* Set the height to match the image */
+        border: 3px solid #000; /* Outer thin border */
+        padding: 2px; /* Add padding to create space for the inner border */
+        box-sizing: border-box; /* Include padding in the element's total width and height */
+    }
+    .logo img {
+        display: block; /* Remove extra space below the image */
+        width: 100%; /* Ensure the image fits within the container */
+        height: 100%; /* Ensure the image fits within the container */
+    }
+    .logo::before {
+        content: '';
+        position: absolute;
+        top: 2px; /* Position the inner border 10px from the outer border */
+        right: 2px; /* Position the inner border 10px from the outer border */
+        bottom: 2px; /* Position the inner border 10px from the outer border */
+        left: 2px; /* Position the inner border 10px from the outer border */
+        border: 1px solid #000; /* Inner thin border */
+        pointer-events: none;
+    }
+        h2 {
+        text-align: center; /* Center-align the h2 heading */
+    }
+    </style>
+</head>
+<body>
+    <div class="logo">
+        <img src="logo.png" alt="Logo" style="width: 200px; height: auto;">
+    </div>
+    <h1>Life in the Kitchen</h1>
+    <div class="categories">
+        <div class="category"><a href="index.html">Home</a></div>
+        <div class="category"><a href="about.html">About</a></div>
+        <div class="category"><a href="starters.html">Starters</a></div>
+        <div class="category"><a href="salads.html">Salads</a></div>
+        <div class="category"><a href="soups.html">Soups</a></div>
+        <div class="category"><a href="lunch_and_supper.html">Lunch and Supper</a></div>
+        <div class="category"><a href="meat.html">Meat</a></div>
+        <div class="category"><a href="fish_and_shellfish.html">Fish and Shellfish</a></div>
+        <div class="category"><a href="vegetables.html">Vegetables</a></div>
+        <div class="category"><a href="rice_and_potatoes.html">Rice and Potatoes</a></div>
+        <div class="category"><a href="bread.html">Bread</a></div>
+        <div class="category"><a href="sauces_and_preserves.html">Sauces and Preserves</a></div>
+        <div class="category"><a href="pickles.html">Pickles</a></div>
+        <div class="category"><a href="drinks.html">Drinks</a></div>
+        <div class="category"><a href="desserts.html">Desserts</a></div>
+        <div class="category"><a href="cookies.html">Cookies</a></div>
+        <div class="category"><a href="cakes_and_pies.html">Cakes and Pies</a></div>
+        </div>
+        <div class="searchbox"><a href="search.html">Search Recipes</a></div>
+    </div>
+    <div class="recipes">
+        <h2>About</h2>
+      <p>Carla Phillips is a New York-born cook and artist living in Wells-next-the-Sea, England. She ran The Moorings restaurant with her late husband Bernard Phillips from 1986-1998. Now, she writes a monthly cooking column for The Quay magazine. This website archives her magazine recipes, making them accessible to family and friends.For any queries about the website please contact keikojphillips@gmail.com, and if you have any questions about a recipe, please contact carla.phillips1@gmail.com .</p>
+      <p>For any queries about the website please contact keikojphillips@gmail.com, and if you have any questions about a recipe, please contact carla.phillips1@gmail.com .</p>
+</body>
+</html> 
